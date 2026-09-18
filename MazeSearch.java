@@ -13,13 +13,13 @@ public class MazeSearch {
      * "BREADCRUMB" - breadcrumb to follow and take
      * "NOTHING" - no breadcrumb
      *
-     * @param map 2D array indicating the value at each tile.
+     * @param maze 2D array indicating the value at each tile.
      * @param breadcrumbs int for the number of breadcrumbs in the maze
      * @return 2D array containing the positions moved to while collecting
      * all the breadcrumbs. (Stop once there are no more breadcrumbs on the path)
      * Each entry in the 2D array should be formatted as [row, col].
      */
-    public static int[][] search(String[][] map, int breadcrumbs) {
+    public static int[][] search(String[][] maze, int breadcrumbs) {
         // Your code here
         
     }
@@ -46,18 +46,18 @@ public class MazeSearch {
     }
 
     private static void testStraightLine() {
-        String[][] map = {
+        String[][] maze = {
                 {BREADCRUMB, BREADCRUMB, BREADCRUMB, BREADCRUMB},
                 {NOTHING, NOTHING, NOTHING, NOTHING},
         };
         int[][] expected = {{0, 0}, {0, 1}, {0, 2}, {0, 3}};
  
         check("Straight line of breadcrumbs is followed to the end",
-                expected, search(map, expected.length));
+                expected, search(maze, expected.length));
     }
  
     private static void testTurn() {
-        String[][] map = {
+        String[][] maze = {
                 {BREADCRUMB, BREADCRUMB, BREADCRUMB},
                 {NOTHING, NOTHING, BREADCRUMB},
                 {NOTHING, NOTHING, BREADCRUMB},
@@ -65,11 +65,11 @@ public class MazeSearch {
         int[][] expected = {{0, 0}, {0, 1}, {0, 2}, {1, 2}, {2, 2}};
  
         check("Trail with a single turn (L-shape) is followed correctly",
-                expected, search(map, expected.length));
+                expected, search(maze, expected.length));
     }
  
     private static void testSShape() {
-        String[][] map = {
+        String[][] maze = {
                 {BREADCRUMB, NOTHING, NOTHING},
                 {BREADCRUMB, NOTHING, NOTHING},
                 {BREADCRUMB, BREADCRUMB, BREADCRUMB},
@@ -81,11 +81,11 @@ public class MazeSearch {
         };
  
         check("S-shaped trail with 3 turns is followed correctly",
-                expected, search(map, expected.length));
+                expected, search(maze, expected.length));
     }
  
     private static void testNoBreadcrumbs() {
-        String[][] map = {
+        String[][] maze = {
                 {NOTHING, NOTHING, NOTHING},
                 {NOTHING, NOTHING, NOTHING},
                 {NOTHING, NOTHING, NOTHING},
@@ -93,11 +93,11 @@ public class MazeSearch {
         int[][] expected = {};
  
         check("Maze with no breadcrumb at the start returns an empty path",
-                expected, search(map, expected.length));
+                expected, search(maze, expected.length));
     }
 
     private static void testHookShape() {
-        String[][] map = {
+        String[][] maze = {
                 {BREADCRUMB, BREADCRUMB, BREADCRUMB},
                 {NOTHING, NOTHING, BREADCRUMB},
                 {BREADCRUMB, NOTHING, BREADCRUMB},
@@ -109,7 +109,7 @@ public class MazeSearch {
         };
  
         check("Hook-shaped trail is followed correctly",
-                expected, search(map, expected.length));
+                expected, search(maze, expected.length));
     }
  
     // -------------------------------------------------------------------
