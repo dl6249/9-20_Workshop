@@ -44,11 +44,7 @@ public class SafeWindSensor {
     public static WindReading[] correctReadings(WindReading[] primaryReadings,
         WindReading[] backupReadings, double minimumWindSpeed) {
        // Your code here
-       for (int i = 0; i < primaryReadings.length; i++) {
-            if (primaryReadings[i].getSpeedKnots() < minimumWindSpeed) primaryReadings[i] = backupReadings[i];
-       }
-
-       return primaryReadings;
+       
     }
 
     // -------------------------------------------------------------------
